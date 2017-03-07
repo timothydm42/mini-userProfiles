@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="styles.css"></link>
 </head>
 <body ng-controller="MainController">
-    
-    {{thisAppIsBroken}}
-    
+  <div ng-repeat="u in users" style="display: inline-block; border: 3px solid lightblue; margin: 3px; padding: 3px" ng-class="{favorite : u.isFavorite}">
+    <p>{{u.id}}</p>
+    <p>{{u.first_name}}</p>
+    <p>{{u.last_name}}</p>
+    <img ng-src="{{u.avatar}}"/>
+    <button ng-click="isFavorite($index)">Favorite</button><!--can use $index in the parameter which will remember which ng-repeat index it was and assign it there-->
+  </div>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
      <script src="app.js"></script>
      <script src="controller.js"></script>
+      <script src="mainService.js"></script>
 </body>
 </html>
